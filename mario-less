@@ -1,0 +1,69 @@
+// building a left and right aligned pyramid
+
+#include <cs50.h>
+#include <stdio.h>
+
+// pseudocode
+// input:1-8
+
+// right aligned pyramid
+int main(void)
+{
+    int height = 0;
+    // input
+    do
+    {
+        height = get_int("Height: \n");
+    }
+    while (height < 1 || height > 8);
+
+    for (int i = 0; i < height; i++) // i = row
+    {
+        for (int j = 0; j < height; j++) // j = column
+        {
+            if ( i + j >= height - 1)
+            {
+                printf("#");
+            }
+            else
+            {
+                printf(" ");
+            }
+
+        }
+        printf("\n");
+    }
+
+
+
+
+
+    /* left aligned pyramid
+    int main(void)
+    {
+        int height = 0;
+        //input
+        do
+        {
+            height = get_int("Height: \n");
+        }while(height < 1 || height > 8);
+
+        for( int i = 0; i< height+1; i++)
+        {
+            for(int j = 0; j < i; j++)
+            {
+
+
+                    printf("#");
+
+
+            }
+            printf("\n");
+        }
+    */
+
+
+
+
+
+    }
