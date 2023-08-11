@@ -1,0 +1,108 @@
+// Calculating number of coins in wuarters, dimes, nickels, and pennies 
+//based on the input cents to pay back to the customer.
+
+#include <cs50.h>
+#include <stdio.h>
+
+int get_cents(void);
+int calculate_quarters(int cents);
+int calculate_dimes(int cents);
+int calculate_nickels(int cents);
+int calculate_pennies(int cents);
+
+int main(void)
+{
+    // Ask how many cents the customer is owed
+    int cents = get_cents();
+
+    // Calculate the number of quarters to give the customer
+    int quarters = calculate_quarters(cents);
+    //printf("%i\n", quarters);
+    cents = cents - quarters * 25;
+
+    // Calculate the number of dimes to give the customer
+    int dimes = calculate_dimes(cents);
+    //printf("%i\n", dimes);
+    cents = cents - dimes * 10;
+
+    // Calculate the number of nickels to give the customer
+    int nickels = calculate_nickels(cents);
+    //printf("%i\n",nickels);
+    cents = cents - nickels * 5;
+
+    // Calculate the number of pennies to give the customer
+    int pennies = calculate_pennies(cents);
+    //printf("%i\n",pennies );
+    cents = cents - pennies * 1;
+
+    // Sum coins
+    int coins = quarters + dimes + nickels + pennies;
+
+    // Print total number of coins to give the customer
+    printf("%i\n", coins);
+}
+
+int get_cents(void)
+{
+    // TODO
+    int cents = 0;
+    do
+    {
+        cents = get_int("Enter number of cents: ");
+    }
+    while(cents < 0);
+    return cents;
+}
+
+int calculate_quarters(int cents)
+{
+    // TODO: quarters 25 cents
+
+    int quarters = 0;
+    while(cents >= 25)
+    {
+        quarters++;
+        cents = cents - 25;
+        //printf("in a loop");
+    }
+    return quarters;
+}
+
+int calculate_dimes(int cents)
+{
+    // TODO: dimes 10 cents
+
+    int dimes = 0;
+    while( cents >= 10)
+    {
+        dimes++;
+        cents = cents - 10;
+    }
+    return dimes;
+}
+
+int calculate_nickels(int cents)
+{
+    // TODO: nickels 5 cents
+
+    int nickles = 0;
+    while( cents >= 5)
+    {
+        nickles++;
+        cents = cents - 5;
+    }
+    return nickles;
+}
+
+int calculate_pennies(int cents)
+{
+    // TODO: pennis 1 cent
+
+    int pennies = 0;
+    while( cents >= 1)
+    {
+        pennies++;
+        cents = cents - 1;
+    }
+    return pennies;
+}
